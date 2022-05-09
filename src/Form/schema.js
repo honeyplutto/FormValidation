@@ -3,7 +3,7 @@ import Schema from "./Schema/Schema";
 export const schema = new Schema({
     username: {
         type: 'string',
-        validators: {min : 4, max : 16},
+        validators: {min : 5, max : 15},
         message: '',
         value: ''
     },
@@ -19,9 +19,9 @@ export const schema = new Schema({
         message: '',
         value: ''
     },
-    confPassword: {
+    confirmPassword: {
         type: 'string',
-        validation: 'confPassword',
+        validation: 'confirmPassword',
         message: '',
         value: ''
     }}

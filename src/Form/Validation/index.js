@@ -1,1 +1,6 @@
-export { default } from './Validation'
+export { 
+    validationUsername,
+    validationEmail,
+    validationPassword,
+    validationConfirmPassword
+} from './Validation'

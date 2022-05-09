@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import ErrorMessage from './ErrorMessage';
 import Input from './Input';
 import { schema } from './schema'
@@ -10,15 +10,11 @@ function Form() {
         username: '', 
         email: '', 
         password: '', 
-        confPassword: ''
+        confirmPassword: ''
     };
 
     const [formValues, setFormValues] = useState(initialValues);
     const [validate, setValidate] = useState({});
-
-    useEffect(() => {
-        console.log(validate);
-    }, [validate]);
 
     const handleChange = (e) => {
         const { name, value} = e.target;
@@ -29,7 +25,6 @@ function Form() {
         e.preventDefault();
         const validate = schema.validation(formValues)
         setValidate(validate); 
-        isFormValid();
     };
 
     return (
@@ -73,9 +68,9 @@ function Form() {
             <Input 
                 label='Confirm Password'
                 type='password'
-                name='confPassword'
+                name='confirmPassword'
                 placeholder='Confirm Password'
-                value={formValues.confPassword.value}
+                value={formValues.confirmPassword.value}
                 handleChange={handleChange}
             />
 

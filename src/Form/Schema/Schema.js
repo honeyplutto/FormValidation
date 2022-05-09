@@ -1,4 +1,9 @@
-import { validationUsername, validationEmail, validationPassword, validationConfPassword } from '../Validation/Validation'
+import { 
+    validationUsername, 
+    validationEmail, 
+    validationPassword, 
+    validationConfirmPassword 
+} from '../Validation'
 
 export default class Schema {
 
@@ -8,10 +13,22 @@ export default class Schema {
 
     validation = (payload) => {
         return {
-            username: validationUsername(payload.username, {min: this.schema.username.validators.min, max: this.schema.username.validators.max}),
+            username: validationUsername(
+                payload.username, 
+                {
+                    min: this.schema.username.validators.min, 
+                    max: this.schema.username.validators.max
+                }
+            ),
             email: validationEmail(payload.email),
-            password: validationPassword(payload.password, {min: this.schema.password.validators.min, max: this.schema.password .validators.max}),
-            confirmPassword: validationConfPassword(payload.password, payload.confPassword)
+            password: validationPassword(
+                payload.password, 
+                {
+                    min: this.schema.password.validators.min, 
+                    max: this.schema.password .validators.max
+                }
+            ),
+            confirmPassword: validationConfirmPassword(payload.password, payload.confirmPassword)
         }
     }
 }
